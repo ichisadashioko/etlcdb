@@ -1,4 +1,4 @@
-# [Japanese Character Database](etlcdb.db.aist.go.jp)
+# [Japanese Character Database](http://etlcdb.db.aist.go.jp)
 
 ## ETL2
 
