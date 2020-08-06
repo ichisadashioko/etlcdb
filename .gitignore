@@ -2,3 +2,6 @@
 *.png
 .ipynb_checkpoints
 __pycache__
+ETL*
+*.xformat
+*.json
