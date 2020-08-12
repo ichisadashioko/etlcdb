@@ -1,6 +1,7 @@
 import os
 import codecs
 import io
+from typing import Tuple
 
 SCRIPT_DIR, _ = os.path.split(os.path.abspath(__file__))
 
@@ -71,7 +72,7 @@ class XFormat:
         return int.from_bytes(bs, byteorder=cls.BYTE_ORDER, signed=True)
 
     @classmethod
-    def serialize_obj(cls, obj) -> (bytes, bytes):
+    def serialize_obj(cls, obj) -> Tuple[bytes, bytes]:
         obj_type = type(obj)
         if obj_type == int:
             return bytes([cls.DATA_TYPE_INT]), cls.serialize_int(obj)
@@ -140,7 +141,6 @@ class XFormat:
             return retval
         elif datatype == cls.DATA_TYPE_DICT:
             retval = {}
-            buffer = io.BytesIO(bs)
             pos = 0
             bs_len = len(bs)
 
