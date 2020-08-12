@@ -7,8 +7,6 @@
 - image_width: 60px
 - image_height: 60px
 
-See [classes.tsv](ETL2/classes.tsv) for more details
-
 ## ETL8B
 
 - 153916 samples
