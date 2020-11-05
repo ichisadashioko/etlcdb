@@ -1,5 +1,18 @@
 # [Japanese Character Database](http://etlcdb.db.aist.go.jp)
 
+## Cleaning dataset status
+
+- [] ETL2
+- [] ETL3
+- [] ETL4
+- [] ETL5
+- [] ETL6
+- [] ETL7
+- [] ETL8G
+- [] ETL8B2
+- [] ETL9G
+- [] ETL9B
+
 ## ETL2
 
 - 52786 samples
