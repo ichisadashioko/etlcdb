@@ -70,11 +70,11 @@ def main():
 
             while True:
                 try:
-                    record = infile.readlist(bitstring_unpack_str)
+                    unpacked_data = infile.readlist(bitstring_unpack_str)
                 except:
                     break
 
-                pil_image = PIL.Image.frombytes('F', (IMG_WIDTH, IMG_HEIGHT), record[16], 'bit', 6)
+                pil_image = PIL.Image.frombytes('F', (IMG_WIDTH, IMG_HEIGHT), unpacked_data[16], 'bit', 6)
                 np_image = np.array(pil_image, dtype=np.uint8)
                 # scale up image color
                 np_image = np_image * 4 # 256 / (2**6)
@@ -84,11 +84,11 @@ def main():
                 pil_image.save(buffer, format='PNG')
                 png_encoded_image = buffer.getvalue()
 
-                index_in_dataset = record[0]
-                scan_source_material_id = shared.T56(record[1])
-                symbol_type_id = ''.join(map(shared.T56, record[2:8]))
-                font_name = ''.join(map(shared.T56, record[8:14]))
-                unicode_char = shared.CO59[tuple(record[14:16])]
+                index_in_dataset = unpacked_data[0]
+                scan_source_material_id = shared.T56(unpacked_data[1])
+                symbol_type_id = ''.join(map(shared.T56, unpacked_data[2:8]))
+                font_name = ''.join(map(shared.T56, unpacked_data[8:14]))
+                unicode_char = shared.CO59[tuple(unpacked_data[14:16])]
 
                 seek_start = outfile.tell()
                 outfile.write(png_encoded_image)
