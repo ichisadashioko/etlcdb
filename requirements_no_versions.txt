@@ -1,0 +1,9 @@
+autopep8
+bitstring
+jupyter
+matplotlib
+numpy
+opencv-python
+pandas
+Pillow
+tqdm
