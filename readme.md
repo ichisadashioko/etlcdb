@@ -1,5 +1,54 @@
 # [Japanese Character Database](http://etlcdb.db.aist.go.jp)
 
+## Repack specification
+
+- The metadata will be stored in a JSON file.
+- Each record metadata will guarantee to contain at least the following keys.
+
+```json5
+{
+    "title": "Record",
+    "type": "object",
+    "required": [
+        "char",
+        "dataset_source",
+        "width",
+        "height",
+        "seek_start",
+        "seek_end",
+    ],
+    "properties": {
+        "char": {
+            "type": "string",
+            "description": "The label char. If the label is invalid, it will start with 'null_'.",
+        },
+        "dataset_source": {
+            "type": "string",
+            "description": "The etlcdb data source file name.",
+        },
+        "width": {
+            "type": "number",
+            "description": "The image width.",
+        },
+        "height": {
+            "type": "number",
+            "description": "The image height.",
+        },
+        "seek_start": {
+            "type": "number",
+            "description": "The PNG image data (in bytes) starting position in the packed image data binary which contains image data for mulitple records.",
+        },
+        "seek_end": {
+            "type": "number",
+            "description": "The PNG image data (in bytes) ending position in the packed image data binary which contains image data for mulitple records.",
+        },
+    },
+}
+```
+
+- There will be other properties in each records based on the source dataset.
+- The PNG images can be either in grayscale (pixel values range from 0 to 255) or in binary (pixel values are either 0 or 1). Because of that caution should be taken when normalizing data in range of `[0,1]` before passing it to the machine learning model.
+
 ## Cleaning dataset status
 
 - [ ] ETL2
