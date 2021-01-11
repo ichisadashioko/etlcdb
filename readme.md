@@ -77,7 +77,7 @@ This dataset contains numbers (0-9), English alphabet letters and symbols with e
 
 This dataset contains 51 hiragana characters with 120 samples each.
 
-# ETL5
+## ETL5
 
 This dataset contains 51 katakana characters with 208 samples each.
 
